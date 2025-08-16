@@ -1,0 +1,8 @@
+Overall:
+Our initial project goal is to build a chatbot that implements a retrieval augmented generation function which improves answer accuracy for a select body of works. My goal is to have this function turn on and off in order to compare the answer quality. To do this, I will select 5–10 independent “ground truth” from a specific document, and I will ask the model the same questions to test its accuracy at fetching these facts. Additionally, I want to add a conversation history in the short term, which will keep ongoing context for the chatbot. That way, users can ask follow-up questions. I will create a basic frontend as well.
+
+RAG:
+I want to utilize an open-source embeddings framework like Sentence Transformers, which will utilize local GPU, and ideally create an index store. I may use FAISS for retrieval and possibly employ reranking. I want to use context assembly and then prompt Gemini to either use the context if relevant, or not answer.
+
+Conversation history:
+I can utilize RAG again for this, and treat conversation history as a corpus and retrieve it. However, things like recency, turn order, and memory extraction must be included. Since we will already have an embeddings + search function, we will just index each turn as a doc and pull back the top few hits on each user turn, just giving top k most relevant.
